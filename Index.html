@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om Namah Shivaya (ONS) - The Philosophical Crypto</title>
+    <!-- Tailwind CSS CDN for modern, responsive styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons for aesthetic icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom styles for the cosmic theme */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117; /* Dark space background */
+            color: #ffffff;
+            /* Applying a subtle background pattern for a cosmic look */
+            background-image: radial-gradient(circle at center, rgba(30, 60, 90, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        .ons-gradient-text {
+            /* Golden/Spiritual glow effect */
+            background-image: linear-gradient(45deg, #FFD700, #F0E68C, #FFD700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .ons-button-primary {
+            /* Primary button style: Golden glow */
+            background: linear-gradient(135deg, #FFD700, #DAA520);
+            color: #1a1a2e;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+        .ons-button-primary:hover {
+            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+            transform: translateY(-2px);
+        }
+
+        .ons-section-bg {
+            background-color: rgba(26, 35, 50, 0.6); /* Slightly transparent dark blue */
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 640px) {
+            .hero-text {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+    <script>
+        // Utility function to copy text to clipboard
+        function copyToClipboard(text) {
+            const textarea = document.createElement('textarea');
+            textarea.value = text;
+            textarea.style.position = 'fixed'; 
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                showMessageModal("Contract Address copied to clipboard!");
+            } catch (err) {
+                showMessageModal("Copy failed: Browser restriction.");
+                console.error('Copy failed:', err);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Modal functionality (instead of alert)
+        function showMessageModal(message) {
+            const modal = document.getElementById('messageModal');
+            document.getElementById('modalMessage').textContent = message;
+            modal.classList.remove('hidden');
+            modal.classList.add('opacity-100');
+            setTimeout(() => {
+                modal.classList.remove('opacity-100');
+                modal.classList.add('opacity-0');
+                setTimeout(() => modal.classList.add('hidden'), 300); // Wait for transition
+            }, 3000); // Auto-hide after 3 seconds
+        }
+
+        // Event listener for Copy button
+        document.addEventListener('DOMContentLoaded', () => {
+             document.getElementById('copyAddressBtn').addEventListener('click', () => {
+                const address = document.getElementById('contractAddress').textContent.trim();
+                copyToClipboard(address);
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Modal for Messages (instead of alert) -->
+    <div id="messageModal" class="fixed inset-x-0 top-0 hidden bg-yellow-500 text-gray-900 text-center py-3 px-4 z-50 transition-opacity duration-300 shadow-xl opacity-0">
+        <p id="modalMessage" class="font-semibold"></p>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-40 w-full bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-yellow-800/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <!-- Logo & Name -->
+            <a href="#hero" class="flex items-center space-x-3">
+                <!-- LOGO UPDATED TO NEW FILE: 1000048427.jpg -->
+                <img src="/files/1000048427.jpg-7b16ea0e-2a0d-42f3-97ea-dcb216d57b7b" alt="ONS Coin Logo" class="h-10 w-10 rounded-full border-2 border-yellow-500 shadow-xl">
+                <span class="text-xl font-extrabold ons-gradient-text">ONS | Om Namah Shivaya</span>
+            </a>
+
+            <!-- Buy Now Button in Header (Secondary CTA) -->
+            <a href="https://worldcoin.org/mini-app?app_id=app_15daccf5b7d4ec9b7dbba044a8fdeab5&path=app/token/0x5814F2FDB5D5E2431e80e3Bb693016D62FE3E129"
+               target="_blank" rel="noopener noreferrer"
+               class="ons-button-primary text-sm px-4 py-2 rounded-full flex items-center shadow-lg hover:shadow-yellow-500/50">
+                <i data-lucide="shopping-cart" class="w-4 h-4 mr-2"></i>
+                Buy ONS
+            </a>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <!-- 1. Hero Section -->
+        <section id="hero" class="py-16 md:py-32 text-center relative overflow-hidden">
+            <div class="relative z-10">
+                <!-- LOGO UPDATED TO NEW FILE: 1000048427.jpg -->
+                <img src="/files/1000048427.jpg-7b16ea0e-2a0d-42f3-97ea-dcb216d57b7b" alt="ONS Coin Logo" class="h-40 w-40 sm:h-52 sm:w-52 mx-auto rounded-full border-4 border-yellow-500 shadow-2xl shadow-yellow-500/50 mb-8">
+                <h1 class="hero-text text-5xl sm:text-7xl font-extrabold mb-4">
+                    <span class="ons-gradient-text">Om Namah Shivaya</span> ($ONS)
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-300 mb-10 font-medium">
+                    The Philosophical Crypto | Built on first principles of stability and cosmic consciousness.
+                </p>
+                <!-- Buy Now Button (Primary CTA) -->
+                <a href="https://worldcoin.org/mini-app?app_id=app_15daccf5b7d4ec9b7dbba044a8fdeab5&path=app/token/0x5814F2FDB5D5E2431e80e3Bb693016D62FE3E129"
+                   target="_blank" rel="noopener noreferrer"
+                   class="ons-button-primary inline-flex items-center justify-center text-lg px-8 py-3 rounded-xl hover:scale-105 transition duration-300">
+                    <i data-lucide="zap" class="w-6 h-6 mr-2"></i>
+                    BUY ONS NOW
+                </a>
+                <p class="mt-4 text-sm text-yellow-300/70">
+                    Directed to the PUF Mini App on WorldApp for real-time price and purchase.
+                </p>
+            </div>
+        </section>
+        
+        ---
+
+        <!-- 2. About/Philosophy Section -->
+        <section id="about" class="py-16">
+            <div class="ons-section-bg p-8 md:p-12 rounded-2xl shadow-2xl">
+                <h2 class="text-4xl font-bold mb-6 text-center ons-gradient-text">About | The Philosophy</h2>
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    <div class="text-lg text-gray-300 space-y-4">
+                        <p>
+                            **Om Namah Shivaya ($ONS)** is more than just a crypto token; it is a philosophical movement built on the first principles of stability and cosmic consciousness.
+                        </p>
+                        <p>
+                            The project is rooted in the **WorldApp PUF Mini App** ecosystem, providing it with wide accessibility and seamless transactions. $ONS aims to bring a calm, centered, and stable energy to the world of cryptocurrency, reflecting the deep meaning of its name and logo.
+                        </p>
+                        <p>
+                            We are building a digital future together with the community that is not only financially sustainable but also ethically and philosophically strong.
+                        </p>
+                    </div>
+                    <!-- Whitepaper CTA -->
+                    <div class="bg-gray-900 p-6 rounded-xl border border-yellow-700/50 shadow-inner">
+                        <h3 class="text-2xl font-semibold mb-3 text-yellow-500">Official Whitepaper</h3>
+                        <p class="text-gray-400 mb-4">Read our official Whitepaper to understand the project's philosophy, tokenomics, and future vision.</p>
+                        <a href="https://drive.google.com/file/d/1DGMcmOMuwlGjU5JaxRaJO84Uvi7fS40V/view?usp=drivesdk"
+                           target="_blank" rel="noopener noreferrer"
+                           class="ons-button-primary inline-flex items-center text-sm px-5 py-2 rounded-lg">
+                            <i data-lucide="book-open-text" class="w-4 h-4 mr-2"></i>
+                            Download Whitepaper
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        ---
+
+        <!-- 3. Token Details / Tokenomics -->
+        <section id="tokenomics" class="py-16">
+            <h2 class="text-4xl font-bold mb-10 text-center ons-gradient-text">Token Details</h2>
+            <div class="ons-section-bg p-8 rounded-2xl shadow-2xl grid md:grid-cols-3 gap-6 text-center">
+                
+                <!-- Total Supply Card -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-yellow-700/50">
+                    <i data-lucide="gauge" class="w-8 h-8 text-yellow-500 mx-auto mb-3"></i>
+                    <p class="text-gray-400 text-sm">Total Supply</p>
+                    <p class="text-2xl font-extrabold text-white">100,000,000</p>
+                    <p class="text-lg ons-gradient-text font-bold">($ONS)</p>
+                </div>
+                
+                <!-- Coin Address Card -->
+                <div class="bg-gray-900 p-6 rounded-xl border border-yellow-700/50 md:col-span-2">
+                    <p class="text-gray-400 text-sm mb-2">Contract Address</p>
+                    <div class="flex items-center justify-center space-x-3 bg-gray-800 p-3 rounded-lg">
+                        <p id="contractAddress" class="text-sm sm:text-base font-mono truncate text-yellow-300">
+                            0x5814F2FDB5D5E2431e80e3Bb693016D62FE3E129
+                        </p>
+                        <button id="copyAddressBtn" class="ons-button-primary p-2 text-gray-900 rounded-full flex-shrink-0" title="Copy Address">
+                            <i data-lucide="copy" class="w-4 h-4"></i>
+                        </button>
+                    </div>
+                    <p class="mt-3 text-xs text-gray-500">Built on the WorldApp Mini App Contract.</p>
+                </div>
+            </div>
+        </section>
+        
+        ---
+
+        <!-- 4. Social Media / Footer -->
+        <section id="socials" class="py-16">
+            <h2 class="text-4xl font-bold mb-10 text-center ons-gradient-text">Connect with the Community</h2>
+            <div class="flex justify-center space-x-8">
+                <!-- X Link -->
+                <a href="https://x.com/ajaynayal95?t=d5TIrnb6P_647hfqVMeoxg&s=09" target="_blank" rel="noopener noreferrer"
+                   class="flex flex-col items-center p-4 rounded-xl ons-section-bg hover:bg-gray-700 transition w-32">
+                    <svg class="w-10 h-10 text-white mb-2" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M18.901 1.153h3.684l-8.026 9.255 9.423 12.062h-7.05l-6.286-8.04-7.892 8.04H.594l8.323-9.596L.18 1.153h7.177l5.44 7.025L18.901 1.153zM17.848 19.467h2.094L6.446 3.66h-2.18L17.848 19.467z"/>
+                    </svg>
+                    <span class="text-gray-300 font-semibold">X (Twitter)</span>
+                </a>
+
+                <!-- Telegram Link -->
+                <a href="https://t.me/OMNAMAHSHIVAYONS" target="_blank" rel="noopener noreferrer"
+                   class="flex flex-col items-center p-4 rounded-xl ons-section-bg hover:bg-gray-700 transition w-32">
+                    <i data-lucide="send" class="w-10 h-10 text-blue-400 mb-2"></i>
+                    <span class="text-gray-300 font-semibold">Telegram</span>
+                </a>
+            </div>
+            <p class="text-center text-sm text-gray-500 mt-10">
+                Telegram: OM NAMAH SHIVAYA | The Philosophical Crypto.
+            </p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-20 py-6 text-center border-t border-gray-800 bg-gray-900">
+        <p class="text-sm text-gray-500">© 2025 Om Namah Shivaya ($ONS) | Built on WorldApp Mini App.</p>
+    </footer>
+
+    <!-- Initialize Icons -->
+    <script>
+        // Creates the Lucide icons dynamically
+        lucide.createIcons();
+    </script>
+</body>
+</html>
+
